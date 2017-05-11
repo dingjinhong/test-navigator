@@ -33,12 +33,15 @@ public class FileNode extends ProjectStructure {
 //	    return image;
 //	}
 
-	public IFile getRes() {
-		return res;
-	}
+	
 	@Override
 	public String getName() {
 		return res.getName();
+	}
+	@Override
+	public IResource getRes() {
+		// TODO Auto-generated method stub
+		return this.res;
 	}
 	@Override
 	public List getChildren() {

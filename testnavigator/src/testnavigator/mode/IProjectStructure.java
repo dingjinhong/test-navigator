@@ -4,6 +4,7 @@ package testnavigator.mode;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.swt.graphics.Image;
 
 public interface IProjectStructure {
@@ -19,4 +20,6 @@ public interface IProjectStructure {
 	public IProject getProject();
 	
 	public Object getParent();
+	
+	public IResource getRes();
 }

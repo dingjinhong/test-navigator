@@ -27,7 +27,7 @@ public class OpenAction extends Action {
 					if(ss.getFirstElement() instanceof FileNode){
 						FileNode fileNode=(FileNode)ss.getFirstElement();
 						try {
-							IDE.openEditor(page, fileNode.getRes(), true);
+							IDE.openEditor(page, (IFile)fileNode.getRes(), true);
 						} catch (PartInitException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

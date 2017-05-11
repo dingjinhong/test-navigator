@@ -101,4 +101,10 @@ public class ProjectStructure implements IProjectStructure {
 		}
 		return children;
 	}
+
+	@Override
+	public IResource getRes() {
+		// TODO Auto-generated method stub
+		return getProject();
+	}
 }

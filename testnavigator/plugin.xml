@@ -60,7 +60,7 @@
          <enablement>
             <or>
                <adapt
-                     type="java.lang.String">
+                     type="testnavigator.mode.IProjectStructure">
                </adapt>
             </or></enablement>
       </actionProvider>
@@ -230,6 +230,19 @@
                type="org.eclipse.ui.model.IWorkbenchAdapter">
          </adapter>
       </factory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="testnavigator.import.category"
+            name="test">
+      </category>
+      <wizard
+            category="testnavigator.import.category"
+            class="testnavigator.wizard.ImportAudioWizard"
+            id="testnavigator.importaudio.wizard"
+            name="Import Audio">
+      </wizard>
    </extension>
 
 </plugin>

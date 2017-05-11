@@ -19,6 +19,12 @@ public class FolderNode extends ProjectStructure {
 	}
 	
 	@Override
+	public IResource getRes() {
+		// TODO Auto-generated method stub
+		return this.dir;
+	}
+
+	@Override
 	public List getChildren() {
 		// TODO Auto-generated method stub
 		children=createChildren(dir);
