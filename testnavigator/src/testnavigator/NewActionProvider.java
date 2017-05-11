@@ -42,7 +42,7 @@ public class NewActionProvider extends CommonActionProvider {
 //			}
 //		}
 
-private static final String NEW_MENU_NAME = "common.new.menu";//$NON-NLS-1$
+private static final String NEW_MENU_NAME = "new";//$NON-NLS-1$
     
     private ActionFactory.IWorkbenchAction showDlgAction;
  
@@ -76,7 +76,7 @@ private static final String NEW_MENU_NAME = "common.new.menu";//$NON-NLS-1$
         newWizardActionGroup.setContext(getContext());
         newWizardActionGroup.fillContextMenu(submenu);
  
-        submenu.add(new Separator(ICommonMenuConstants.GROUP_ADDITIONS));
+       // submenu.add(new Separator(ICommonMenuConstants.GROUP_ADDITIONS));
         // Add "Other"
         submenu.add(new Separator());
         submenu.add(showDlgAction);

@@ -33,9 +33,9 @@ public class DeleteAction extends Action {
 	}
 	@Override
 	public void run() {
-		List l=(List)viewer.getInput();
-		l.remove(data);
-		viewer.refresh();
+//		List l=(List)viewer.getInput();
+//		l.remove(data);
+//		viewer.refresh();
 		
 		
 	}

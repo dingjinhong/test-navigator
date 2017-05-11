@@ -24,7 +24,7 @@
       <navigatorContent
             contentProvider="testnavigator.ContentProvider"
             id="testnavigator.navigatorContent1"
-            labelProvider="testnavigator.MyLabelProvider"
+            labelProvider="testnavigator.LabelProvider"
             name="name">
          <triggerPoints>
             <instanceof
@@ -66,9 +66,30 @@
       </actionProvider>
       <commonWizard
             type="new"
-            wizardId="testnavigator.new.wizard">
+            wizardId="testnavigator.newproject.wizard">
          <enablement></enablement>
       </commonWizard>
+      <commonWizard
+            type="new"
+            wizardId="testnavigator.newfolder.wizard">
+         <enablement></enablement>
+      </commonWizard>
+      <commonWizard
+            type="new"
+            wizardId="testnavigator.newfile.wizard">
+         <enablement></enablement>
+      </commonWizard>
+      <actionProvider
+            class="testnavigator.OpenActionProvider"
+            id="testnavigator.OpenAction">
+         <enablement>
+            <or>
+               <adapt
+                     type="testnavigator.mode.FileNode">
+               </adapt>
+            </or>
+         </enablement>
+      </actionProvider>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">
@@ -82,6 +103,9 @@
             </insertionPoint>
             <insertionPoint
                   name="group.new">
+            </insertionPoint>
+            <insertionPoint
+                  name="group.port">
             </insertionPoint>
          </popupMenu>
       </viewer>
@@ -107,6 +131,9 @@
             </actionExtension>
             <actionExtension
                   pattern="testnavigator.OtherAction">
+            </actionExtension>
+            <actionExtension
+                  pattern="testnavigator.OpenAction">
             </actionExtension>
          </includes>
       </viewerActionBinding>
@@ -176,10 +203,33 @@
             name="test">
       </category>
       <wizard
+            category="testnavigator.category"
             class="testnavigator.wizard.NewProjectWizard"
             id="testnavigator.newproject.wizard"
             name="New Project">
       </wizard>
+      <wizard
+            category="testnavigator.category"
+            class="testnavigator.wizard.NewFolderWizard"
+            id="testnavigator.newfolder.wizard"
+            name="New Folder">
+      </wizard>
+      <wizard
+            category="testnavigator.category"
+            class="org.eclipse.ui.wizards.newresource.BasicNewFileResourceWizard"
+            id="testnavigator.newfile.wizard"
+            name="New File">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.core.resources.IResource"
+            class="testnavigator.ResourceAdapterFactory">
+         <adapter
+               type="org.eclipse.ui.model.IWorkbenchAdapter">
+         </adapter>
+      </factory>
    </extension>
 
 </plugin>

@@ -1,6 +1,7 @@
 package testnavigator.mode;
 
 import java.net.URI;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -9,7 +10,6 @@ import org.eclipse.core.resources.IResource;
 
 public class FileNode extends ProjectStructure {
 
-	private String NAME="File";
 	//private Image image;
 	//private static String ICON_FILE="project_video.png";
 	private IProject project=null;
@@ -33,9 +33,17 @@ public class FileNode extends ProjectStructure {
 //	    return image;
 //	}
 
+	public IFile getRes() {
+		return res;
+	}
 	@Override
 	public String getName() {
-		return NAME;
+		return res.getName();
+	}
+	@Override
+	public List getChildren() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

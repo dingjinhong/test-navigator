@@ -2,7 +2,6 @@ package testnavigator;
 
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonActionConstants;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
@@ -10,9 +9,9 @@ import org.eclipse.ui.navigator.ICommonMenuConstants;
 import org.eclipse.ui.navigator.ICommonViewerSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 
-public class DeleteActionProvider extends CommonActionProvider {
-	private DeleteAction deleteAction;
-	public DeleteActionProvider() {
+public class OpenActionProvider extends CommonActionProvider {
+	private OpenAction openAction;
+	public OpenActionProvider() {
 		// TODO Auto-generated constructor stub
 	}
 	 @Override
@@ -20,20 +19,21 @@ public class DeleteActionProvider extends CommonActionProvider {
 		 ICommonViewerSite viewSite=anExtensionSite.getViewSite();
 			if (viewSite instanceof ICommonViewerWorkbenchSite) {
 				ICommonViewerWorkbenchSite workbenchSite = (ICommonViewerWorkbenchSite)viewSite;
-				deleteAction=new DeleteAction(anExtensionSite.getStructuredViewer(),workbenchSite.getSelectionProvider());
+				openAction=new OpenAction(workbenchSite.getPage());
+				openAction.setSelection(workbenchSite.getSelectionProvider().getSelection());
 			}
 	    }
 	 @Override
 		public void fillContextMenu(IMenuManager menu) {
-			if (deleteAction.isEnabled()) {
-				menu.appendToGroup(ICommonMenuConstants.GROUP_PORT,deleteAction);
+			if (openAction.isEnabled()) {
+				menu.appendToGroup(ICommonMenuConstants.GROUP_OPEN,openAction);
 			}
 		}
 
 		@Override
 		public void fillActionBars(IActionBars actionBars) {
-			if (deleteAction.isEnabled()) {
-				actionBars.setGlobalActionHandler("delete", deleteAction);
+			if (openAction.isEnabled()) {
+				actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN, openAction);
 			}
 		}
 

@@ -42,7 +42,7 @@ public class ProjectStructure implements IProjectStructure {
 	}
 	public ProjectStructure(IProject project) {
 		this.project=project;
-		children=createChildren(project);
+		
 		
 		
 	}
@@ -58,12 +58,13 @@ public class ProjectStructure implements IProjectStructure {
 
 	@Override
 	public List getChildren() {
+		children=createChildren(project);
 		return children;
 	}
 
 	@Override
 	public String getName() {
-		return "";
+		return this.project.getName();
 	}
 
 	@Override
