@@ -90,6 +90,37 @@
             </or>
          </enablement>
       </actionProvider>
+      <actionProvider
+            class="testnavigator.ExportActionProvider"
+            id="testnavigator.ExportAction">
+      </actionProvider>
+      <actionProvider
+            class="testnavigator.ExportActionProvider"
+            id="testnavigator.ExportAction">
+      </actionProvider>
+      <actionProvider
+            class="testnavigator.ExportActionProvider"
+            id="testnavigator.ExportAction">
+      </actionProvider>
+      <commonWizard
+            type="import"
+            wizardId="testnavigator.importaudio.wizard">
+         <enablement></enablement>
+      </commonWizard>
+      <commonWizard
+            type="export"
+            wizardId="testnavigator.export.wizard">
+         <enablement></enablement>
+      </commonWizard>
+      <actionProvider
+            class="testnavigator.ExportActionProvider"
+            id="testnavigator.ExportAction">
+         <enablement>
+            <instanceof
+                  value="testnavigator.mode.IProjectStructure">
+            </instanceof>
+         </enablement>
+      </actionProvider>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.viewer">
@@ -134,6 +165,9 @@
             </actionExtension>
             <actionExtension
                   pattern="testnavigator.OpenAction">
+            </actionExtension>
+            <actionExtension
+                  pattern="testnavigator.ExportAction">
             </actionExtension>
          </includes>
       </viewerActionBinding>
@@ -242,6 +276,19 @@
             class="testnavigator.wizard.ImportAudioWizard"
             id="testnavigator.importaudio.wizard"
             name="Import Audio">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+            id="testnavigator.export.category"
+            name="test">
+      </category>
+      <wizard
+            category="testnavigator.export.category"
+            class="testnavigator.wizard.MyExportWizard"
+            id="testnavigator.export.wizard"
+            name="Export">
       </wizard>
    </extension>
 
